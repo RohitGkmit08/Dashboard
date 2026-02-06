@@ -1,12 +1,10 @@
-import LoginForm from "./features/auth/login/LoginForm.jsx"
+import LoginForm from "./features/auth/login/LoginForm.jsx";
 const App = () => {
   return (
     <>
-     <LoginForm/>
+      <LoginForm />
     </>
-     
-
-  )
-}
+  );
+};
 
 export default App;

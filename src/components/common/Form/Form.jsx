@@ -3,7 +3,16 @@ import FormInput from "../FormInput/FormInput";
 import Button from "../Button/Button";
 import "./Form.css";
 
-const Form = ({ title, fields, values, errors, onChange, onSubmit, btnText }) => {
+const Form = ({
+  title,
+  fields,
+  values,
+  errors,
+  onChange,
+  onSubmit,
+  btnText,
+  formError,
+}) => {
   return (
     <div className="form">
       <div className="form-card">
@@ -22,6 +31,8 @@ const Form = ({ title, fields, values, errors, onChange, onSubmit, btnText }) =>
               error={errors[field.name]}
             />
           ))}
+
+          {formError && <p className="form-error">{formError}</p>}
 
           <Button title={btnText} type="submit" />
         </form>
