@@ -6,7 +6,7 @@
   padding: 20px;
 }
 
-.form__card {
+.form-card {
   width: 100%;
   max-width: 400px;
   background: white;
@@ -15,7 +15,7 @@
   padding: 22px;
 }
 
-.form__title {
+.form-title {
   margin: 10px;
   font-size: 20px;
 }
