@@ -1,9 +1,10 @@
-
-
+import LoginForm from "./features/auth/LoginForm.jsx"
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <LoginForm/>
+    </div>
   )
 }
 
-export default App
+export default App;
