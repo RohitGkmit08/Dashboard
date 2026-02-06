@@ -1,6 +1,6 @@
 import React from "react";
-import FormInput from "./FormInput";
-import Button from "./Button";
+import FormInput from "../FormInput/FormInput";
+import Button from "../Button/Button";
 import "./Form.css";
 
 const Form = ({ title, fields, values, errors, onChange, onSubmit, btnText }) => {
