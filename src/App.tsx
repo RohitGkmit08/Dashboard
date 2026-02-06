@@ -1,4 +1,4 @@
-import LoginForm from "./features/auth/LoginForm.jsx"
+import LoginForm from "./features/auth/login/LoginForm.jsx"
 const App = () => {
   return (
     <div>

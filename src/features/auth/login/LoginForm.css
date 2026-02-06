@@ -1,5 +1,5 @@
 .form-error {
   margin: 10px;
-  color: red;
+  color: var(--color-red);
   font-size: 15px;
 }

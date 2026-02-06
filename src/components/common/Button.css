@@ -4,8 +4,8 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  background: black;
-  color: white;
+  background: var(--color-black);
+  color: var(--color-white);
   font-weight: 600;
 }
 
