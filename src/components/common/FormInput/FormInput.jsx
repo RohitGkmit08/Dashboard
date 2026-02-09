@@ -10,22 +10,35 @@ const FormInput = ({
   onChange,
   error,
 }) => {
+  const isControlled = value !== undefined;
+
   const handleChange = (e) => {
-    onChange(name, e.target.value);
+    if (onChange) {
+      onChange(name, e.target.value);
+    }
   };
 
   return (
     <div className="form-input">
       <label className="form-input-label">{label}</label>
 
-      <input
-        className="form-input-control"
-        type={type}
-        name={name}
-        value={value}
-        placeholder={placeholder}
-        onChange={handleChange}
-      />
+      {isControlled ? (
+        <input
+          className="form-input-control"
+          type={type}
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          onChange={handleChange}
+        />
+      ) : (
+        <input
+          className="form-input-control"
+          type={type}
+          name={name}
+          placeholder={placeholder}
+        />
+      )}
 
       {error ? <p className="form-input-error">{error}</p> : null}
     </div>
