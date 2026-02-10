@@ -1,3 +1,5 @@
+import { useNavigate, useLocation } from "react-router-dom";
+
 import {
   Drawer,
   Box,
@@ -11,7 +13,10 @@ import {
 const drawerWidth = 260;
 
 const DashboardSidebar = () => {
-  const activeItem = "dashboard";
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const activePath = location.pathname;
 
   return (
     <Drawer
@@ -45,14 +50,16 @@ const DashboardSidebar = () => {
       {/* Menu */}
       <Box sx={{ px: 2 }}>
         <List sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+          {/* Dashboard */}
           <ListItemButton
+            onClick={() => navigate("/dashboard")}
             sx={{
               borderRadius: 2,
-              bgcolor: activeItem === "dashboard" ? "#4f46e5" : "#f1f5f9",
-              color: activeItem === "dashboard" ? "white" : "#111827",
+              bgcolor: activePath === "/dashboard" ? "#4f46e5" : "#f1f5f9",
+              color: activePath === "/dashboard" ? "white" : "#111827",
               py: 1.5,
               "&:hover": {
-                bgcolor: activeItem === "dashboard" ? "#4338ca" : "#e2e8f0",
+                bgcolor: activePath === "/dashboard" ? "#4338ca" : "#e2e8f0",
               },
             }}
           >
@@ -65,13 +72,17 @@ const DashboardSidebar = () => {
             />
           </ListItemButton>
 
+          {/* Settings */}
           <ListItemButton
+            onClick={() => navigate("/settings")}
             sx={{
               borderRadius: 2,
-              bgcolor: "#f1f5f9",
-              color: "#111827",
+              bgcolor: activePath === "/settings" ? "#4f46e5" : "#f1f5f9",
+              color: activePath === "/settings" ? "white" : "#111827",
               py: 1.5,
-              "&:hover": { bgcolor: "#e2e8f0" },
+              "&:hover": {
+                bgcolor: activePath === "/settings" ? "#4338ca" : "#e2e8f0",
+              },
             }}
           >
             <ListItemText
@@ -93,7 +104,7 @@ const DashboardSidebar = () => {
           fullWidth
           variant="contained"
           sx={{
-            bgcolor: "#ffcbcbff",
+            bgcolor: "#ef4444",
             borderRadius: 2,
             textTransform: "none",
             fontWeight: 700,
