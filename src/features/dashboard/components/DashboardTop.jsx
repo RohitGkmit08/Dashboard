@@ -1,18 +1,15 @@
-import { AppBar, Toolbar, Typography, Box, IconButton } from "@mui/material";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import { Box, Typography } from "@mui/material";
+import { dashboardTopStyles as styles } from "../styles/dashboardStyles";
 
 const DashboardTop = () => {
   return (
-    <AppBar position="static" elevation={0}>
-      <Toolbar>
-        <Typography variant="h6" fontWeight="700">
-          Dashboard
-        </Typography>
-
-        <Box sx={{ flex: 1 }} />
-      </Toolbar>
-    </AppBar>
+    <Box sx={styles.wrapper}>
+      <Typography variant="h4" sx={styles.title}>
+        Dashboard
+      </Typography>
+    </Box>
   );
 };
 
 export default DashboardTop;
+
