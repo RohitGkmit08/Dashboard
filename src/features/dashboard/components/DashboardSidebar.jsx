@@ -18,6 +18,10 @@ const DashboardSidebar = () => {
 
   const activePath = location.pathname;
 
+  const handleLogout = () => {
+    navigate("/login");
+  };
+
   return (
     <Drawer
       variant="permanent"
@@ -74,14 +78,19 @@ const DashboardSidebar = () => {
 
           {/* Settings */}
           <ListItemButton
-            onClick={() => navigate("/settings")}
+            onClick={() => navigate("/dashboard/settings")}
             sx={{
               borderRadius: 2,
-              bgcolor: activePath === "/settings" ? "#4f46e5" : "#f1f5f9",
-              color: activePath === "/settings" ? "white" : "#111827",
+              bgcolor:
+                activePath === "/dashboard/settings" ? "#4f46e5" : "#f1f5f9",
+              color:
+                activePath === "/dashboard/settings" ? "white" : "#111827",
               py: 1.5,
               "&:hover": {
-                bgcolor: activePath === "/settings" ? "#4338ca" : "#e2e8f0",
+                bgcolor:
+                  activePath === "/dashboard/settings"
+                    ? "#4338ca"
+                    : "#e2e8f0",
               },
             }}
           >
@@ -103,6 +112,7 @@ const DashboardSidebar = () => {
         <Button
           fullWidth
           variant="contained"
+          onClick={handleLogout}
           sx={{
             bgcolor: "#ef4444",
             borderRadius: 2,

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Form from "../../../components/common/Form/Form";
 import { ADMIN_CREDENTIALS } from "./adminCredentials";
 import { LOGIN_FIELDS } from "./loginFields";
@@ -15,6 +17,8 @@ const initialErrors = {
 };
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState(initialErrors);
 
@@ -44,17 +48,19 @@ const LoginForm = () => {
   };
 
   const handleSubmit = (submitValue) => {
-// submitValue can be 2 things depending on Form mode:
-// 1) Controlled mode: Form calls onSubmit(e)
-//    so submitValue = the form submit event (e)
+    // submitValue can be 2 things depending on Form mode:
+    // 1) Controlled mode: Form calls onSubmit(e)
+    //    so submitValue = the form submit event (e)
+    //
+    // 2) Uncontrolled mode:
+    //    Form collects values using FormData and calls onSubmit(data)
+    //    so submitValue = { email: "...", password: "..." }
 
-// 2) Uncontrolled mode:
-//    Form collects values using FormData and calls onSubmit(data)
-//    so submitValue = { email: "...", password: "..." }
     let data;
-    if(submitValue.target){
-      data = form
-    }else{
+
+    if (submitValue?.target) {
+      data = form;
+    } else {
       data = submitValue;
     }
 
@@ -73,7 +79,7 @@ const LoginForm = () => {
       return;
     }
 
-    console.log("Admin logged in successfully:", data);
+    navigate("/dashboard");
   };
 
   return (
@@ -84,7 +90,6 @@ const LoginForm = () => {
       onSubmit={handleSubmit}
       btnText="Sign In"
       formError={errors.form}
-
       // Controlled Mode / UnControlled Mode
       values={form}
       onChange={handleInputChange}

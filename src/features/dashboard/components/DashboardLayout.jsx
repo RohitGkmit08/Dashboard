@@ -5,7 +5,7 @@ import DashboardTop from "./DashboardTop";
 import DashboardChart from "./DashBoardChart";
 import StatCard from "./StatCard";
 import { useDashboardData } from "../hooks/useDashboardData";
-
+import { Outlet } from "react-router-dom";
 import { dashboardLayoutStyles as styles } from "../styles/dashboardStyles";
 
 const DashboardLayout = () => {
@@ -58,6 +58,7 @@ const DashboardLayout = () => {
               </Box>
             </>
           ) : null}
+          <Outlet/>
         </Box>
       </Box>
     </Box>
