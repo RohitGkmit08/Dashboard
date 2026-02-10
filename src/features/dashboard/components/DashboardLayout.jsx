@@ -2,9 +2,8 @@ import { Box, Grid, CircularProgress, Typography } from "@mui/material";
 
 import DashboardSidebar from "./DashboardSidebar";
 import DashboardTop from "./DashboardTop";
+import DashboardChart from "./DashBoardChart";
 import StatCard from "./StatCard";
-import DashboardChart from "./DashboardChart";
-
 import { useDashboardData } from "../hooks/useDashboardData";
 
 import { dashboardLayoutStyles as styles } from "../styles/dashboardStyles";
