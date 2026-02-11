@@ -60,8 +60,7 @@ const LoginForm = () => {
       }));
       return;
     }
-
-    console.log("Admin logged in successfully:", form);
+    
   };
 
   return (
