@@ -1,7 +1,12 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import { statCardStyles as styles } from "../styles/dashboardStyles";
 
-const StatCard = ({ title, value }) => {
+interface StatCardProps {
+  title: string;
+  value: number | string;
+}
+
+const StatCard = ({ title, value }: StatCardProps) => {
   return (
     <Card sx={styles.card}>
       <CardContent sx={styles.content}>
