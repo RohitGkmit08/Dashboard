@@ -38,21 +38,18 @@ const Form = ({
 
         <form onSubmit={handleSubmit}>
           {fields.map((field) => {
-            let inputValue;
-            if (isControlled) {
-              inputValue = values[field.name] || "";
-            } else {
-              inputValue = undefined;
-            }
+            const { name, label, type, placeholder } = field;
+
+            const inputValue = isControlled ? values[name] || "" : undefined;
 
             return (
               <FormInput
-                key={field.name}
-                label={field.label}
-                name={field.name}
-                type={field.type}
-                placeholder={field.placeholder}
-                error={errors[field.name]}
+                key={name}
+                label={label}
+                name={name}
+                type={type}
+                placeholder={placeholder}
+                error={errors[name]}
                 value={inputValue}
                 onChange={isControlled ? onChange : undefined}
               />

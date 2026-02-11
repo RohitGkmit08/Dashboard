@@ -3,12 +3,22 @@ import { BarChart } from "@mui/x-charts/BarChart";
 
 import { dashboardChartStyles as styles } from "../styles/dashboardStyles";
 
+import {
+  DASHBOARD_CHART_CONFIG,
+  DASHBOARD_CHART_SERIES,
+} from "../constants/dashboardChartConstants";
+
 const DashboardChart = ({ title, chartData }) => {
   const labels = chartData.map((item) => item.day);
+  
+  const getCssVar = (name) =>
+    getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
-  const users = chartData.map((item) => item.users);
-  const sessions = chartData.map((item) => item.sessions);
-  const revenue = chartData.map((item) => item.revenue);
+  const series = DASHBOARD_CHART_SERIES.map(({ key, label, cssVar }) => ({
+    data: chartData.map((item) => item[key]),
+    label,
+    color: getCssVar(cssVar),
+  }));
 
   return (
     <Card sx={styles.card}>
@@ -19,22 +29,16 @@ const DashboardChart = ({ title, chartData }) => {
 
         <Box sx={styles.chartWrapper}>
           <BarChart
-            height={420}
+            height={DASHBOARD_CHART_CONFIG.height}
             xAxis={[
               {
                 data: labels,
-                scaleType: "band",
-                categoryGapRatio: 0.55,
-                barGapRatio: 0.35,
+                ...DASHBOARD_CHART_CONFIG.xAxis,
               },
             ]}
-            series={[
-              { data: users, label: "Users", color: "#ef3737ff" },
-              { data: sessions, label: "Sessions", color: "#50c522ff" },
-              { data: revenue, label: "Revenue", color: "#360bf5ff" },
-            ]}
-            margin={{ top: 20, bottom: 60, left: 60, right: 0 }}
-            grid={{ horizontal: true }}
+            series={series}
+            margin={DASHBOARD_CHART_CONFIG.margin}
+            grid={DASHBOARD_CHART_CONFIG.grid}
             sx={styles.chartSx}
           />
         </Box>

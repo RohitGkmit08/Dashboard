@@ -31,8 +31,8 @@ const DashboardSidebar = () => {
         "& .MuiDrawer-paper": {
           width: drawerWidth,
           boxSizing: "border-box",
-          bgcolor: "#ffffff",
-          borderRight: "1px solid #e5e7eb",
+          bgcolor: "var(--color-sidebar-bg)",
+          borderRight: "1px solid var(--color-sidebar-border)",
           px: 2,
           py: 3,
         },
@@ -44,7 +44,7 @@ const DashboardSidebar = () => {
           variant="h5"
           sx={{
             fontWeight: 800,
-            color: "#4f46e5",
+            color: "var(--color-primary)",
           }}
         >
           Admin Panel
@@ -59,11 +59,20 @@ const DashboardSidebar = () => {
             onClick={() => navigate("/dashboard")}
             sx={{
               borderRadius: 2,
-              bgcolor: activePath === "/dashboard" ? "#4f46e5" : "#f1f5f9",
-              color: activePath === "/dashboard" ? "white" : "#111827",
+              bgcolor:
+                activePath === "/dashboard"
+                  ? "var(--color-primary)"
+                  : "var(--color-sidebar-item-bg)",
+              color:
+                activePath === "/dashboard"
+                  ? "var(--color-white)"
+                  : "var(--color-sidebar-text)",
               py: 1.5,
               "&:hover": {
-                bgcolor: activePath === "/dashboard" ? "#4338ca" : "#e2e8f0",
+                bgcolor:
+                  activePath === "/dashboard"
+                    ? "var(--color-primary-hover)"
+                    : "var(--color-sidebar-item-hover)",
               },
             }}
           >
@@ -82,15 +91,19 @@ const DashboardSidebar = () => {
             sx={{
               borderRadius: 2,
               bgcolor:
-                activePath === "/dashboard/settings" ? "#4f46e5" : "#f1f5f9",
+                activePath === "/dashboard/settings"
+                  ? "var(--color-primary)"
+                  : "var(--color-sidebar-item-bg)",
               color:
-                activePath === "/dashboard/settings" ? "white" : "#111827",
+                activePath === "/dashboard/settings"
+                  ? "var(--color-white)"
+                  : "var(--color-sidebar-text)",
               py: 1.5,
               "&:hover": {
                 bgcolor:
                   activePath === "/dashboard/settings"
-                    ? "#4338ca"
-                    : "#e2e8f0",
+                    ? "var(--color-primary-hover)"
+                    : "var(--color-sidebar-item-hover)",
               },
             }}
           >
@@ -114,14 +127,14 @@ const DashboardSidebar = () => {
           variant="contained"
           onClick={handleLogout}
           sx={{
-            bgcolor: "#ef4444",
+            bgcolor: "var(--color-danger)",
             borderRadius: 2,
             textTransform: "none",
             fontWeight: 700,
             py: 1.5,
             fontSize: "0.95rem",
             boxShadow: "none",
-            "&:hover": { bgcolor: "#dc2626" },
+            "&:hover": { bgcolor: "var(--color-danger-hover)" },
           }}
         >
           Logout
