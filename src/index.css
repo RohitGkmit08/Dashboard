@@ -3,4 +3,24 @@
   --color-white: #fff;
   --color-gray-border: #cfcfcf;
   --color-red: #ff0000;
+
+  /* Primary Theme */
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+
+  /* Sidebar */
+  --color-sidebar-bg: #ffffff;
+  --color-sidebar-border: #e5e7eb;
+  --color-sidebar-item-bg: #f1f5f9;
+  --color-sidebar-item-hover: #e2e8f0;
+  --color-sidebar-text: #111827;
+
+  /* Logout */
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+
+  /* Chart Colors */
+  --color-chart-users: #ef3737ff;
+  --color-chart-sessions: #50c522ff;
+  --color-chart-revenue: #360bf5ff;
 }
