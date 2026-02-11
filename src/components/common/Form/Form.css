@@ -1,0 +1,27 @@
+.form {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: 10px;
+  padding: 22px;
+}
+
+.form-title {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.form-error {
+  margin: 10px;
+  color: var(--color-red);
+  font-size: 15px;
+}
