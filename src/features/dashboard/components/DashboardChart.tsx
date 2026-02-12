@@ -44,8 +44,20 @@ const DashboardChart = ({ title, chartData }: DashboardChartProps) => {
                 ...DASHBOARD_CHART_CONFIG.xAxis,
               },
             ]}
-            series={series}
-            margin={DASHBOARD_CHART_CONFIG.margin}
+            yAxis={[
+              {
+                label: "Count / Revenue",
+              },
+            ]}
+            series={series.map((s) => ({
+              ...s,
+              barWidth: 18,
+            }))}
+            margin={{
+              ...DASHBOARD_CHART_CONFIG.margin,
+              left: 80,
+              bottom: 70,
+            }}
             grid={DASHBOARD_CHART_CONFIG.grid}
             sx={styles.chartSx}
           />

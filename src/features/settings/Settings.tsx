@@ -10,14 +10,41 @@ interface SettingsProps {
 
 const Settings = ({ mode, onToggleTheme }: SettingsProps) => {
   return (
-    <Box sx={{ p: 4 }}>
-      <Typography variant="h4" fontWeight={800} sx={{ mb: 3 }}>
+    <Box
+      sx={{
+        p: 4,
+        bgcolor: "background.default",
+        minHeight: "calc(100vh - 90px)",
+      }}
+    >
+      <Typography
+        variant="h4"
+        sx={{
+          mb: 3,
+          fontWeight: 900,
+          color: "text.primary",
+        }}
+      >
         Settings
       </Typography>
 
-      <Card sx={{ borderRadius: 3 }}>
+      <Card
+        sx={{
+          borderRadius: 3,
+          bgcolor: "background.paper",
+          border: "1px solid",
+          borderColor: "divider",
+        }}
+      >
         <CardContent sx={{ p: 3 }}>
-          <Typography variant="h6" fontWeight={700} sx={{ mb: 2 }}>
+          <Typography
+            variant="h6"
+            sx={{
+              mb: 2,
+              fontWeight: 800,
+              color: "text.primary",
+            }}
+          >
             Global Theme
           </Typography>
 
