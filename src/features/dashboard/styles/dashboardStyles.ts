@@ -8,7 +8,7 @@ export const dashboardLayoutStyles: Record<string, Sx> = {
     minHeight: "100vh",
     width: "100%",
     overflow: "hidden",
-    bgcolor: "background.default",
+    bgcolor: (theme) => theme.palette.background.default,
   },
 
   main: {
@@ -52,8 +52,8 @@ export const dashboardTopStyles: Record<string, Sx> = {
     py: 3,
   },
   title: {
-    color: "text.primary",
     fontWeight: 900,
+    color: (theme) => theme.palette.text.primary,
   },
 };
 
@@ -63,34 +63,31 @@ export const statCardStyles: Record<string, Sx> = {
     height: "100%",
     width: "100%",
     flex: 1,
-    border: "1px solid",
-    borderColor: "divider",
-    bgcolor: "background.paper",
+    border: (theme) => `1px solid ${theme.palette.divider}`,
+    bgcolor: (theme) => theme.palette.background.paper,
   },
   content: {
     p: 3,
   },
   title: {
-    color: "text.secondary",
-    fontSize: "0.85rem", 
+    color: (theme) => theme.palette.text.secondary,
+    fontSize: "0.85rem",
     fontWeight: 600,
   },
   value: {
     mt: 1,
-    mb: 0,
-    color: "text.primary",
+    mb: 1.5,
+    color: (theme) => theme.palette.text.primary,
     fontWeight: 700,
-    fontSize: "2.2rem", 
   },
 };
 
 export const dashboardChartStyles: Record<string, Sx> = {
   card: {
     borderRadius: 3,
-    border: "1px solid",
-    borderColor: "divider",
+    border: (theme) => `1px solid ${theme.palette.divider}`,
     width: "100%",
-    bgcolor: "background.paper",
+    bgcolor: (theme) => theme.palette.background.paper,
   },
 
   content: {
@@ -99,8 +96,8 @@ export const dashboardChartStyles: Record<string, Sx> = {
 
   title: {
     mb: 2,
-    color: "text.primary",
     fontWeight: 800,
+    color: (theme) => theme.palette.text.primary,
   },
 
   chartWrapper: {
@@ -111,28 +108,27 @@ export const dashboardChartStyles: Record<string, Sx> = {
   chartSx: {
     width: "100%",
 
-    "& .MuiChartsAxis-line": (theme) => ({
-      stroke: theme.palette.divider,
-    }),
-    "& .MuiChartsAxis-tick": (theme) => ({
-      stroke: theme.palette.divider,
-    }),
+    "& .MuiChartsAxis-line": {
+      stroke: (theme) => theme.palette.divider,
+    },
+    "& .MuiChartsAxis-tick": {
+      stroke: (theme) => theme.palette.divider,
+    },
+    "& .MuiChartsGrid-line": {
+      stroke: (theme) => theme.palette.divider,
+      opacity: 0.35,
+    },
 
-    "& .MuiChartsGrid-line": (theme) => ({
-      stroke: theme.palette.divider,
-      opacity: theme.palette.mode === "dark" ? 0.25 : 0.4,
-    }),
-
-    "& .MuiChartsAxis-tickLabel": (theme) => ({
-      fill: theme.palette.text.secondary,
+    "& .MuiChartsAxis-tickLabel": {
+      fill: (theme) => theme.palette.text.secondary,
       fontSize: 12,
       fontWeight: 600,
-    }),
+    },
 
-    "& .MuiChartsLegend-label": (theme) => ({
-      fill: theme.palette.text.primary,
+    "& .MuiChartsLegend-label": {
+      fill: (theme) => theme.palette.text.secondary,
       fontSize: 12,
       fontWeight: 700,
-    }),
+    },
   },
 };
