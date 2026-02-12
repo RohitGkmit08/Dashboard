@@ -1,7 +1,14 @@
+import type { PaletteMode } from "@mui/material";
 import { Box, Card, CardContent, Typography } from "@mui/material";
+
 import ThemeToggle from "./components/ThemeToggle";
 
-const Settings = ({ mode, onToggleTheme }) => {
+interface SettingsProps {
+  mode: PaletteMode;
+  onToggleTheme: () => void;
+}
+
+const Settings = ({ mode, onToggleTheme }: SettingsProps) => {
   return (
     <Box sx={{ p: 4 }}>
       <Typography variant="h4" fontWeight={800} sx={{ mb: 3 }}>

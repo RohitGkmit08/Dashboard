@@ -1,14 +1,14 @@
 import React, { useMemo, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-
+import type { PaletteMode } from "@mui/material";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 
 import App from "./App";
 import "./index.css";
 
 const Main = () => {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState<PaletteMode>("light");
 
   const theme = useMemo(() => {
     return createTheme({

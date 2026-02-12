@@ -12,4 +12,3 @@ const DashboardTop = () => {
 };
 
 export default DashboardTop;
-

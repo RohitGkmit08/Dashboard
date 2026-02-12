@@ -6,16 +6,24 @@ import { dashboardChartStyles as styles } from "../styles/dashboardStyles";
 import {
   DASHBOARD_CHART_CONFIG,
   DASHBOARD_CHART_SERIES,
+  type ChartSeriesKey,
 } from "../constants/dashboardChartConstants";
 
-const DashboardChart = ({ title, chartData }) => {
+import type { DashboardChartPoint } from "../data/dashboardData";
+
+interface DashboardChartProps {
+  title: string;
+  chartData: DashboardChartPoint[];
+}
+
+const DashboardChart = ({ title, chartData }: DashboardChartProps) => {
   const labels = chartData.map((item) => item.day);
-  
-  const getCssVar = (name) =>
+
+  const getCssVar = (name: string): string =>
     getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
   const series = DASHBOARD_CHART_SERIES.map(({ key, label, cssVar }) => ({
-    data: chartData.map((item) => item[key]),
+    data: chartData.map((item) => item[key as ChartSeriesKey]),
     label,
     color: getCssVar(cssVar),
   }));

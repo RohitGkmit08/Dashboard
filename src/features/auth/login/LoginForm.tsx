@@ -1,28 +1,39 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Form from "../../../components/common/Form/Form";
 import { ADMIN_CREDENTIALS } from "./adminCredentials";
 import { LOGIN_FIELDS } from "./loginFields";
 
-const initialForm = {
+interface LoginFormValues {
+  email: string;
+  password: string;
+}
+
+interface LoginFormErrors extends LoginFormValues {
+  form: string;
+}
+
+const initialForm: LoginFormValues = {
   email: "",
   password: "",
 };
 
-const initialErrors = {
+const initialErrors: LoginFormErrors = {
   email: "",
   password: "",
   form: "",
 };
 
+type SubmitValue = LoginFormValues | React.FormEvent<HTMLFormElement>;
+
 const LoginForm = () => {
   const navigate = useNavigate();
 
-  const [form, setForm] = useState(initialForm);
-  const [errors, setErrors] = useState(initialErrors);
+  const [form, setForm] = useState<LoginFormValues>(initialForm);
+  const [errors, setErrors] = useState<LoginFormErrors>(initialErrors);
 
-  const handleInputChange = (name, value) => {
+  const handleInputChange = (name: keyof LoginFormValues, value: string) => {
     setForm((prev) => ({
       ...prev,
       [name]: value,
@@ -35,9 +46,8 @@ const LoginForm = () => {
     }));
   };
 
-  // Works for controlled + uncontrolled
-  const validateErrors = (data) => {
-    const newErrors = { ...initialErrors };
+  const validateErrors = (data: LoginFormValues) => {
+    const newErrors: LoginFormErrors = { ...initialErrors };
 
     if (!data.email?.trim()) newErrors.email = "Email is required";
     if (!data.password?.trim()) newErrors.password = "Password is required";
@@ -47,22 +57,9 @@ const LoginForm = () => {
     return !newErrors.email && !newErrors.password;
   };
 
-  const handleSubmit = (submitValue) => {
-    // submitValue can be 2 things depending on Form mode:
-    // 1) Controlled mode: Form calls onSubmit(e)
-    //    so submitValue = the form submit event (e)
-    //
-    // 2) Uncontrolled mode:
-    //    Form collects values using FormData and calls onSubmit(data)
-    //    so submitValue = { email: "...", password: "..." }
-
-    let data;
-
-    if (submitValue?.target) {
-      data = form;
-    } else {
-      data = submitValue;
-    }
+  const handleSubmit = (submitValue: SubmitValue) => {
+    const data: LoginFormValues =
+      "target" in submitValue ? form : submitValue;
 
     const isValid = validateErrors(data);
     if (!isValid) return;
@@ -90,7 +87,6 @@ const LoginForm = () => {
       onSubmit={handleSubmit}
       btnText="Sign In"
       formError={errors.form}
-      // Controlled Mode / UnControlled Mode
       values={form}
       onChange={handleInputChange}
     />
