@@ -1,7 +1,17 @@
-import React from "react";
+import type React from "react";
 import "./FormInput.css";
 
-const FormInput = ({
+interface FormInputProps<Name extends string = string> {
+  label: string;
+  name: Name;
+  type?: string;
+  value?: string;
+  placeholder?: string;
+  onChange?: (name: Name, value: string) => void;
+  error?: string;
+}
+
+const FormInput = <Name extends string = string>({
   label,
   name,
   type = "text",
@@ -9,13 +19,11 @@ const FormInput = ({
   placeholder,
   onChange,
   error,
-}) => {
+}: FormInputProps<Name>) => {
   const isControlled = value !== undefined;
 
-  const handleChange = (e) => {
-    if (onChange) {
-      onChange(name, e.target.value);
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.(name, e.target.value);
   };
 
   return (

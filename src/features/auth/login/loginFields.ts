@@ -11,4 +11,4 @@ export const LOGIN_FIELDS = [
     type: "password",
     placeholder: "Enter password",
   },
-];
+] as const;
