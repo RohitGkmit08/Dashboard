@@ -14,7 +14,7 @@ const Settings = ({ mode, onToggleTheme }: SettingsProps) => {
       sx={{
         p: 4,
         bgcolor: "background.default",
-        minHeight: "calc(100vh - 90px)",
+        height:"100vh"
       }}
     >
       <Typography

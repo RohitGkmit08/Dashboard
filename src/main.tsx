@@ -8,7 +8,7 @@ import type { PaletteMode } from "@mui/material";
 import App from "./App";
 import "./index.css";
 
-const Main = () => {
+export const Main = () => {
   const [mode, setMode] = useState<PaletteMode>("light");
 
   const theme = useMemo(() => {
