@@ -1,10 +1,7 @@
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent, Typography, useTheme } from "@mui/material";
 import { BarChart } from "@mui/x-charts/BarChart";
 
-import { dashboardChartStyles as styles } from "../styles/dashboardStyles";
-
 import {
-  DASHBOARD_CHART_CONFIG,
   DASHBOARD_CHART_SERIES,
   type ChartSeriesKey,
 } from "../constants/dashboardChartConstants";
@@ -17,37 +14,90 @@ interface DashboardChartProps {
 }
 
 const DashboardChart = ({ title, chartData }: DashboardChartProps) => {
+  const theme = useTheme();
+
   const labels = chartData.map((item) => item.day);
 
-  const getCssVar = (name: string): string =>
-    getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-
-  const series = DASHBOARD_CHART_SERIES.map(({ key, label, cssVar }) => ({
+  const series = DASHBOARD_CHART_SERIES.map(({ key, label }, index) => ({
     data: chartData.map((item) => item[key as ChartSeriesKey]),
     label,
-    color: getCssVar(cssVar),
+    color:
+      index === 0
+        ? "#60a5fa"
+        : index === 1
+        ? "#34d399"
+        : "#a78bfa",
   }));
 
   return (
-    <Card sx={styles.card}>
-      <CardContent sx={styles.content}>
-        <Typography variant="h5" sx={styles.title}>
+    <Card
+      sx={{
+        borderRadius: 3,
+        border: `1px solid ${theme.palette.divider}`,
+        bgcolor: theme.palette.background.paper,
+      }}
+    >
+      <CardContent sx={{ p: 3 }}>
+        <Typography
+          variant="h6"
+          sx={{ mb: 2, fontWeight: 800, color: theme.palette.text.primary }}
+        >
           {title}
         </Typography>
 
-        <Box sx={styles.chartWrapper}>
+        <Box sx={{ width: "100%", overflow: "hidden" }}>
           <BarChart
-            height={DASHBOARD_CHART_CONFIG.height}
+            height={420}
             xAxis={[
               {
                 data: labels,
-                ...DASHBOARD_CHART_CONFIG.xAxis,
+                scaleType: "band",
+                categoryGapRatio: 0.7, 
+                barGapRatio: 0.25, 
+              },
+            ]}
+            yAxis={[
+              {
+                label: "Count / Revenue",
               },
             ]}
             series={series}
-            margin={DASHBOARD_CHART_CONFIG.margin}
-            grid={DASHBOARD_CHART_CONFIG.grid}
-            sx={styles.chartSx}
+            margin={{ top: 20, bottom: 60, left: 70, right: 20 }}
+            grid={{ horizontal: true }}
+            sx={{
+              width: "100%",
+
+              "& .MuiChartsAxis-line": {
+                stroke: theme.palette.divider,
+              },
+
+              "& .MuiChartsAxis-tick": {
+                stroke: theme.palette.divider,
+              },
+
+              "& .MuiChartsGrid-line": {
+                stroke: theme.palette.divider,
+                opacity: 0.4,
+              },
+
+              "& .MuiChartsAxis-tickLabel": {
+                fill: theme.palette.text.secondary,
+                fontSize: 12,
+                fontWeight: 600,
+              },
+
+              "& .MuiChartsAxis-label": {
+                fill: theme.palette.text.primary,
+                fontSize: 13,
+                fontWeight: 700,
+              },
+
+              "& .MuiChartsLegend-label": {
+                fill: theme.palette.text.primary,
+                fontSize: 12,
+                fontWeight: 700,
+              },
+            }}
           />
         </Box>
       </CardContent>

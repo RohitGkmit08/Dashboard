@@ -28,24 +28,24 @@ const DashboardSidebar = () => {
       sx={{
         width: drawerWidth,
         flexShrink: 0,
-        "& .MuiDrawer-paper": {
+        "& .MuiDrawer-paper": (theme) => ({
           width: drawerWidth,
           boxSizing: "border-box",
-          bgcolor: "var(--color-sidebar-bg)",
-          borderRight: "1px solid var(--color-sidebar-border)",
+          bgcolor: theme.palette.background.paper,
+          borderRight: `1px solid ${theme.palette.divider}`,
           px: 2,
           py: 3,
-        },
+        }),
       }}
     >
       {/* Title */}
       <Box sx={{ px: 2, mb: 4 }}>
         <Typography
           variant="h5"
-          sx={{
+          sx={(theme) => ({
             fontWeight: 800,
-            color: "var(--color-primary)",
-          }}
+            color: theme.palette.primary.main,
+          })}
         >
           Admin Panel
         </Typography>
@@ -57,24 +57,24 @@ const DashboardSidebar = () => {
           {/* Dashboard */}
           <ListItemButton
             onClick={() => navigate("/dashboard")}
-            sx={{
+            sx={(theme) => ({
               borderRadius: 2,
               bgcolor:
                 activePath === "/dashboard"
-                  ? "var(--color-primary)"
-                  : "var(--color-sidebar-item-bg)",
+                  ? theme.palette.primary.main
+                  : theme.palette.action.hover,
               color:
                 activePath === "/dashboard"
-                  ? "var(--color-white)"
-                  : "var(--color-sidebar-text)",
+                  ? theme.palette.primary.contrastText
+                  : theme.palette.text.primary,
               py: 1.5,
               "&:hover": {
                 bgcolor:
                   activePath === "/dashboard"
-                    ? "var(--color-primary-hover)"
-                    : "var(--color-sidebar-item-hover)",
+                    ? theme.palette.primary.dark
+                    : theme.palette.action.selected,
               },
-            }}
+            })}
           >
             <ListItemText
               primary="Dashboard"
@@ -88,24 +88,24 @@ const DashboardSidebar = () => {
           {/* Settings */}
           <ListItemButton
             onClick={() => navigate("/dashboard/settings")}
-            sx={{
+            sx={(theme) => ({
               borderRadius: 2,
               bgcolor:
                 activePath === "/dashboard/settings"
-                  ? "var(--color-primary)"
-                  : "var(--color-sidebar-item-bg)",
+                  ? theme.palette.primary.main
+                  : theme.palette.action.hover,
               color:
                 activePath === "/dashboard/settings"
-                  ? "var(--color-white)"
-                  : "var(--color-sidebar-text)",
+                  ? theme.palette.primary.contrastText
+                  : theme.palette.text.primary,
               py: 1.5,
               "&:hover": {
                 bgcolor:
                   activePath === "/dashboard/settings"
-                    ? "var(--color-primary-hover)"
-                    : "var(--color-sidebar-item-hover)",
+                    ? theme.palette.primary.dark
+                    : theme.palette.action.selected,
               },
-            }}
+            })}
           >
             <ListItemText
               primary="Settings"
@@ -124,18 +124,21 @@ const DashboardSidebar = () => {
       <Box sx={{ px: 2 }}>
         <Button
           fullWidth
-          variant="contained"
+          variant="text"
           onClick={handleLogout}
-          sx={{
-            bgcolor: "var(--color-danger)",
+          sx={(theme) => ({
+            bgcolor: theme.palette.action.hover,
+            color: theme.palette.text.primary,
             borderRadius: 2,
             textTransform: "none",
             fontWeight: 700,
             py: 1.5,
             fontSize: "0.95rem",
             boxShadow: "none",
-            "&:hover": { bgcolor: "var(--color-danger-hover)" },
-          }}
+            "&:hover": {
+              bgcolor: theme.palette.action.selected,
+            },
+          })}
         >
           Logout
         </Button>

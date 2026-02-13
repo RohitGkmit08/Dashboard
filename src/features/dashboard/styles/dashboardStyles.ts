@@ -7,8 +7,8 @@ export const dashboardLayoutStyles: Record<string, Sx> = {
     display: "flex",
     minHeight: "100vh",
     width: "100%",
-    bgcolor: "#f8fafc",
     overflow: "hidden",
+    bgcolor: (theme) => theme.palette.background.default,
   },
 
   main: {
@@ -52,8 +52,8 @@ export const dashboardTopStyles: Record<string, Sx> = {
     py: 3,
   },
   title: {
-    color: "#111827",
     fontWeight: 900,
+    color: (theme) => theme.palette.text.primary,
   },
 };
 
@@ -63,29 +63,31 @@ export const statCardStyles: Record<string, Sx> = {
     height: "100%",
     width: "100%",
     flex: 1,
-    border: "1px solid #e5e7eb",
+    border: (theme) => `1px solid ${theme.palette.divider}`,
+    bgcolor: (theme) => theme.palette.background.paper,
   },
   content: {
     p: 3,
   },
   title: {
-    color: "#64748b",
-    fontSize: "0.9rem",
-    fontWeight: 500,
+    color: (theme) => theme.palette.text.secondary,
+    fontSize: "0.85rem",
+    fontWeight: 600,
   },
   value: {
     mt: 1,
     mb: 1.5,
-    color: "#111827",
-    fontWeight: 500,
+    color: (theme) => theme.palette.text.primary,
+    fontWeight: 700,
   },
 };
 
 export const dashboardChartStyles: Record<string, Sx> = {
   card: {
     borderRadius: 3,
-    border: "1px solid #e5e7eb",
+    border: (theme) => `1px solid ${theme.palette.divider}`,
     width: "100%",
+    bgcolor: (theme) => theme.palette.background.paper,
   },
 
   content: {
@@ -94,8 +96,8 @@ export const dashboardChartStyles: Record<string, Sx> = {
 
   title: {
     mb: 2,
-    color: "#111827",
-    fontWeight: 700,
+    fontWeight: 800,
+    color: (theme) => theme.palette.text.primary,
   },
 
   chartWrapper: {
@@ -106,20 +108,27 @@ export const dashboardChartStyles: Record<string, Sx> = {
   chartSx: {
     width: "100%",
 
-    "& .MuiChartsAxis-line": { stroke: "#e2e8f0" },
-    "& .MuiChartsAxis-tick": { stroke: "#e2e8f0" },
-    "& .MuiChartsGrid-line": { stroke: "#f1f5f9" },
+    "& .MuiChartsAxis-line": {
+      stroke: (theme) => theme.palette.divider,
+    },
+    "& .MuiChartsAxis-tick": {
+      stroke: (theme) => theme.palette.divider,
+    },
+    "& .MuiChartsGrid-line": {
+      stroke: (theme) => theme.palette.divider,
+      opacity: 0.35,
+    },
 
     "& .MuiChartsAxis-tickLabel": {
-      fill: "#475569",
-      fontSize: 13,
+      fill: (theme) => theme.palette.text.secondary,
+      fontSize: 12,
       fontWeight: 600,
     },
 
     "& .MuiChartsLegend-label": {
-      fill: "#334155",
+      fill: (theme) => theme.palette.text.secondary,
       fontSize: 12,
-      fontWeight: 600,
+      fontWeight: 700,
     },
   },
 };
