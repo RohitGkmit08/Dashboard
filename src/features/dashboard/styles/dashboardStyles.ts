@@ -111,9 +111,11 @@ export const dashboardChartStyles: Record<string, Sx> = {
     "& .MuiChartsAxis-line": {
       stroke: (theme) => theme.palette.divider,
     },
+
     "& .MuiChartsAxis-tick": {
       stroke: (theme) => theme.palette.divider,
     },
+
     "& .MuiChartsGrid-line": {
       stroke: (theme) => theme.palette.divider,
       opacity: 0.35,
@@ -125,10 +127,77 @@ export const dashboardChartStyles: Record<string, Sx> = {
       fontWeight: 600,
     },
 
+    "& .MuiChartsAxis-label": {
+      fill: (theme) => theme.palette.text.primary,
+      fontSize: 13,
+      fontWeight: 700,
+    },
+
     "& .MuiChartsLegend-label": {
       fill: (theme) => theme.palette.text.secondary,
       fontSize: 12,
       fontWeight: 700,
+    },
+  },
+};
+
+export const dashboardSidebarStyles: Record<string, Sx> = {
+  drawerPaper: {
+    width: 260,
+    boxSizing: "border-box",
+    px: 2,
+    py: 3,
+  },
+
+  titleWrapper: {
+    px: 2,
+    mb: 4,
+  },
+
+  title: {
+    fontWeight: 800,
+    color: (theme) => theme.palette.primary.main,
+  },
+
+  menuWrapper: {
+    px: 2,
+  },
+
+  menuList: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 1,
+  },
+
+  navTextBold: {
+    fontSize: "0.95rem",
+    fontWeight: 700,
+  },
+
+  navTextSemiBold: {
+    fontSize: "0.95rem",
+    fontWeight: 600,
+  },
+
+  spacer: {
+    flex: 1,
+  },
+
+  logoutWrapper: {
+    px: 2,
+  },
+
+  logoutButton: {
+    bgcolor: (theme) => theme.palette.action.hover,
+    color: (theme) => theme.palette.text.primary,
+    borderRadius: 2,
+    textTransform: "none",
+    fontWeight: 700,
+    py: 1.5,
+    fontSize: "0.95rem",
+    boxShadow: "none",
+    "&:hover": {
+      bgcolor: (theme) => theme.palette.action.selected,
     },
   },
 };
