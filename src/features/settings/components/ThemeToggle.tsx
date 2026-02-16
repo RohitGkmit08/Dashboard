@@ -9,7 +9,9 @@ interface ThemeToggleProps {
 const ThemeToggle = ({ mode, onToggleTheme }: ThemeToggleProps) => {
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-      <Typography sx={{ fontWeight: 600 }}>Dark Mode</Typography>
+      <Typography sx={{ fontWeight: 700, color: "text.primary" }}>
+        {mode === "dark" ? "Dark Mode" : "Light Mode"}
+      </Typography>
 
       <Switch checked={mode === "dark"} onChange={onToggleTheme} />
     </Box>

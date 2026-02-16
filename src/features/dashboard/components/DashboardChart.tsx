@@ -1,15 +1,13 @@
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import { BarChart } from "@mui/x-charts/BarChart";
 
-import { dashboardChartStyles as styles } from "../styles/dashboardStyles";
-
 import {
-  DASHBOARD_CHART_CONFIG,
   DASHBOARD_CHART_SERIES,
   type ChartSeriesKey,
 } from "../constants/dashboardChartConstants";
 
 import type { DashboardChartPoint } from "../data/dashboardData";
+import { dashboardChartStyles as styles } from "../styles/dashboardStyles";
 
 interface DashboardChartProps {
   title: string;
@@ -19,34 +17,39 @@ interface DashboardChartProps {
 const DashboardChart = ({ title, chartData }: DashboardChartProps) => {
   const labels = chartData.map((item) => item.day);
 
-  const getCssVar = (name: string): string =>
-    getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-
   const series = DASHBOARD_CHART_SERIES.map(({ key, label, cssVar }) => ({
     data: chartData.map((item) => item[key as ChartSeriesKey]),
     label,
-    color: getCssVar(cssVar),
+    color: `var(${cssVar})`,
   }));
 
   return (
     <Card sx={styles.card}>
       <CardContent sx={styles.content}>
-        <Typography variant="h5" sx={styles.title}>
+        <Typography variant="h6" sx={styles.title}>
           {title}
         </Typography>
 
         <Box sx={styles.chartWrapper}>
           <BarChart
-            height={DASHBOARD_CHART_CONFIG.height}
+            height={420}
             xAxis={[
               {
                 data: labels,
-                ...DASHBOARD_CHART_CONFIG.xAxis,
+                scaleType: "band",
+                categoryGapRatio: 0.7,
+                barGapRatio: 0.25,
+                tickLabelStyle: { display: "none" },
+              },
+            ]}
+            yAxis={[
+              {
+                label: "Count / Revenue",
               },
             ]}
             series={series}
-            margin={DASHBOARD_CHART_CONFIG.margin}
-            grid={DASHBOARD_CHART_CONFIG.grid}
+            margin={{ top: 20, bottom: 60, left: 70, right: 20 }}
+            grid={{ horizontal: true }}
             sx={styles.chartSx}
           />
         </Box>

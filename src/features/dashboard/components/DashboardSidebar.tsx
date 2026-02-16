@@ -10,6 +10,8 @@ import {
   Typography,
 } from "@mui/material";
 
+import { dashboardSidebarStyles as styles } from "../styles/dashboardStyles";
+
 const drawerWidth = 260;
 
 const DashboardSidebar = () => {
@@ -22,120 +24,87 @@ const DashboardSidebar = () => {
     navigate("/login");
   };
 
+  const getNavItemSx = (path: string) => (theme: any) => {
+    const isActive = activePath === path;
+
+    return {
+      borderRadius: 2,
+      bgcolor: isActive ? theme.palette.primary.main : theme.palette.action.hover,
+      color: isActive
+        ? theme.palette.primary.contrastText
+        : theme.palette.text.primary,
+      py: 1.5,
+      "&:hover": {
+        bgcolor: isActive
+          ? theme.palette.primary.dark
+          : theme.palette.action.selected,
+      },
+    };
+  };
+
   return (
     <Drawer
       variant="permanent"
       sx={{
         width: drawerWidth,
         flexShrink: 0,
-        "& .MuiDrawer-paper": {
+          "& .MuiDrawer-paper": (theme) => ({
           width: drawerWidth,
           boxSizing: "border-box",
-          bgcolor: "var(--color-sidebar-bg)",
-          borderRight: "1px solid var(--color-sidebar-border)",
+          bgcolor: theme.palette.background.paper,
+          borderRight: `1px solid ${theme.palette.divider}`,
           px: 2,
           py: 3,
-        },
+        }),
       }}
     >
-      {/* Title */}
-      <Box sx={{ px: 2, mb: 4 }}>
-        <Typography
-          variant="h5"
-          sx={{
-            fontWeight: 800,
-            color: "var(--color-primary)",
-          }}
-        >
+
+      <Box sx={styles.titleWrapper}>
+        <Typography variant="h5" sx={styles.title}>
           Admin Panel
         </Typography>
       </Box>
 
-      {/* Menu */}
-      <Box sx={{ px: 2 }}>
-        <List sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-          {/* Dashboard */}
+      <Box sx={styles.menuWrapper}>
+        <List sx={styles.menuList}>
           <ListItemButton
             onClick={() => navigate("/dashboard")}
-            sx={{
-              borderRadius: 2,
-              bgcolor:
-                activePath === "/dashboard"
-                  ? "var(--color-primary)"
-                  : "var(--color-sidebar-item-bg)",
-              color:
-                activePath === "/dashboard"
-                  ? "var(--color-white)"
-                  : "var(--color-sidebar-text)",
-              py: 1.5,
-              "&:hover": {
-                bgcolor:
-                  activePath === "/dashboard"
-                    ? "var(--color-primary-hover)"
-                    : "var(--color-sidebar-item-hover)",
-              },
-            }}
+            sx={getNavItemSx("/dashboard")}
           >
             <ListItemText
               primary="Dashboard"
-              primaryTypographyProps={{
-                fontSize: "0.95rem",
-                fontWeight: 700,
+              slotProps={{
+                primary: {
+                  sx: { ...styles.navTextBold },
+                },
               }}
             />
           </ListItemButton>
 
-          {/* Settings */}
           <ListItemButton
             onClick={() => navigate("/dashboard/settings")}
-            sx={{
-              borderRadius: 2,
-              bgcolor:
-                activePath === "/dashboard/settings"
-                  ? "var(--color-primary)"
-                  : "var(--color-sidebar-item-bg)",
-              color:
-                activePath === "/dashboard/settings"
-                  ? "var(--color-white)"
-                  : "var(--color-sidebar-text)",
-              py: 1.5,
-              "&:hover": {
-                bgcolor:
-                  activePath === "/dashboard/settings"
-                    ? "var(--color-primary-hover)"
-                    : "var(--color-sidebar-item-hover)",
-              },
-            }}
+            sx={getNavItemSx("/dashboard/settings")}
           >
             <ListItemText
               primary="Settings"
-              primaryTypographyProps={{
-                fontSize: "0.95rem",
-                fontWeight: 600,
+              slotProps={{
+                primary: {
+                  sx: { ...styles.navTextSemiBold },
+                },
               }}
             />
           </ListItemButton>
         </List>
       </Box>
 
-      <Box sx={{ flex: 1 }} />
+      <Box sx={styles.spacer} />
 
-      {/* Logout */}
-      <Box sx={{ px: 2 }}>
+      <Box sx={styles.logoutWrapper}>
         <Button
           fullWidth
-          variant="contained"
+          variant="text"
           onClick={handleLogout}
-          sx={{
-            bgcolor: "var(--color-danger)",
-            borderRadius: 2,
-            textTransform: "none",
-            fontWeight: 700,
-            py: 1.5,
-            fontSize: "0.95rem",
-            boxShadow: "none",
-            "&:hover": { bgcolor: "var(--color-danger-hover)" },
-          }}
+          sx={styles.logoutButton}
         >
           Logout
         </Button>
