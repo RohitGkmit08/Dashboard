@@ -37,6 +37,11 @@ body {
   --color-chart-users: #60a5fa;
   --color-chart-sessions: #34d399;
   --color-chart-revenue: #a78bfa;
+
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray-border: #cfcfcf;
+  --color-red: #ff0000;
 }
 
 html[data-theme="dark"] {
@@ -59,7 +64,13 @@ html[data-theme="dark"] {
   --sidebar-text: #e2e8f0;
   --sidebar-item-bg: transparent;
   --sidebar-item-hover: #111c33;
+
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray-border: #23324a;
+  --color-red: #ef4444;
 }
+
 body {
   background: var(--bg);
   color: var(--text);

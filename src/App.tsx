@@ -5,6 +5,7 @@ import Login from "./features/auth/login/Login";
 import Dashboard from "./features/dashboard/Dashboard";
 import DashboardLayout from "./features/dashboard/components/DashboardLayout";
 import Settings from "./features/settings/Settings";
+import UsersPage from "./features/users/UsersPage";
 
 interface AppProps {
   mode: PaletteMode;
@@ -23,6 +24,8 @@ const App = ({ mode, setMode }: AppProps) => {
 
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<Dashboard />} />
+        <Route path="users" element={<UsersPage />} />
+
         <Route
           path="settings"
           element={<Settings mode={mode} onToggleTheme={onToggleTheme} />}
