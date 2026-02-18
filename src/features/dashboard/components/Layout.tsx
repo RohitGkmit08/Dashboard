@@ -1,18 +1,18 @@
 import { Box } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
-import DashboardSidebar from "./DashboardSidebar";
-import DashboardTop from "./DashboardTop";
+import Sidebar from "./Sidebar";
+import Topbar from "./Topbar";
 
 import { dashboardLayoutStyles as styles } from "../styles/dashboardStyles";
 
 const DashboardLayout = () => {
   return (
     <Box sx={styles.page}>
-      <DashboardSidebar />
+      <Sidebar/>
 
       <Box sx={styles.main}>
-        <DashboardTop />
+        <Topbar/>
 
         <Box sx={styles.content}>
           <Outlet />

@@ -1,11 +1,12 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import type { PaletteMode } from "@mui/material";
 
-import Login from "./features/auth/login/Login";
-import Dashboard from "./features/dashboard/Dashboard";
-import DashboardLayout from "./features/dashboard/components/DashboardLayout";
-import Settings from "./features/settings/Settings";
-import UsersPage from "./features/users/UsersPage";
+import LoginPage from "./features/auth/login/Page";
+import DashboardPage from "./features/dashboard/Page";
+import DashboardLayout from "./features/dashboard/components/Layout";
+import SettingsPage from "./features/settings/Page";
+import UsersPage from "./features/users/Page";
+
 
 interface AppProps {
   mode: PaletteMode;
@@ -20,16 +21,14 @@ const App = ({ mode, setMode }: AppProps) => {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/login" />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<LoginPage />} />
 
       <Route path="/dashboard" element={<DashboardLayout />}>
-        <Route index element={<Dashboard />} />
+        
+        <Route index element={<DashboardPage />} />
         <Route path="users" element={<UsersPage />} />
 
-        <Route
-          path="settings"
-          element={<Settings mode={mode} onToggleTheme={onToggleTheme} />}
-        />
+        <Route path="settings"element={<SettingsPage mode={mode} onToggleTheme={onToggleTheme} />}/>
       </Route>
 
       <Route path="*" element={<Navigate to="/login" />} />

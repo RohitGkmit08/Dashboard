@@ -4,7 +4,7 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import {
   DASHBOARD_CHART_SERIES,
   type ChartSeriesKey,
-} from "../constants/dashboardChartConstants";
+} from "../constants/chart";
 
 import type { DashboardChartPoint } from "../data/dashboardData";
 import { dashboardChartStyles as styles } from "../styles/dashboardStyles";
