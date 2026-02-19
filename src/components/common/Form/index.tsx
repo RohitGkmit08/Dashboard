@@ -1,6 +1,6 @@
 import type React from "react";
 
-import FormInput from "../FormInput";
+import FormInput from "../Input";
 import Button from "../Button";
 import "./styles.css";
 
