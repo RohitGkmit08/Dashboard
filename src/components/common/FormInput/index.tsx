@@ -1,5 +1,5 @@
 import type React from "react";
-import "./FormInput.css";
+import "./styles.css";
 
 interface FormInputProps<Name extends string = string> {
   label: string;

@@ -9,7 +9,7 @@ import {
   TextField,
 } from "@mui/material";
 
-import type { UserRow } from "../data/mock";
+import type { UserRow } from "../../constants";
 
 type AddUserModalProps = {
   open: boolean;

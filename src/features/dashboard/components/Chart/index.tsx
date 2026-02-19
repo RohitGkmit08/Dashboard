@@ -4,10 +4,10 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import {
   DASHBOARD_CHART_SERIES,
   type ChartSeriesKey,
-} from "../constants/chart";
+} from "../../constants/chart"
 
-import type { DashboardChartPoint } from "../data/dashboard-data";
-import { dashboardChartStyles as styles } from "../styles/dashboard-styles";
+import type { DashboardChartPoint } from "../../data/dashboard-data"
+import { dashboardChartStyles as styles } from "../../styles/dashboard-styles"
 
 interface DashboardChartProps {
   title: string;

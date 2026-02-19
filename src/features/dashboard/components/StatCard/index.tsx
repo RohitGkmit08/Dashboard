@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import { statCardStyles as styles } from "../styles/dashboard-styles";
+import { statCardStyles as styles } from "../../styles/dashboard-styles";
 
 interface StatCardProps {
   title: string;

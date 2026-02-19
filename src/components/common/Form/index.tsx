@@ -1,8 +1,8 @@
 import type React from "react";
 
-import FormInput from "../form-input/FormInput";
-import Button from "../button/Button";
-import "./Form.css";
+import FormInput from "../FormInput";
+import Button from "../Button";
+import "./styles.css";
 
 type FormField<Name extends string = string> = {
   label: string;
