@@ -1,7 +1,7 @@
 import type React from "react";
 
-import FormInput from "../FormInput/FormInput";
-import Button from "../Button/Button";
+import FormInput from "../form-input/FormInput";
+import Button from "../button/Button";
 import "./Form.css";
 
 type FormField<Name extends string = string> = {

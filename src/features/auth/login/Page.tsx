@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Form from "../../../components/common/Form/Form";
-import { ADMIN_CREDENTIALS } from "./adminCredentials";
-import { LOGIN_FIELDS } from "./loginFields";
-
+import Form from "../../../components/common/form/Form";
+import { ADMIN_CREDENTIALS } from "./admin-credentials";
+import { LOGIN_FIELDS } from "./login-fields";
 
 interface LoginFormValues {
   email: string;

@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import StatCard from "./components/StatCard";
 import Chart from "./components/Chart";
 
-import { useDashboardData } from "./hooks/useDashboardData";
-import { dashboardLayoutStyles as styles } from "./styles/dashboardStyles";
+import { useDashboardData } from "./hooks/use-dashboard-data";
+import { dashboardLayoutStyles as styles } from "./styles/dashboard-styles";
 
 const Dashboard = () => {
   const navigate = useNavigate();

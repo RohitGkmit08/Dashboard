@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { dashboardSidebarStyles as styles } from "../styles/dashboardStyles";
+import { dashboardSidebarStyles as styles } from "../styles/dashboard-styles";
 
 const drawerWidth = 260;
 

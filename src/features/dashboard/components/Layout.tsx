@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 
-import { dashboardLayoutStyles as styles } from "../styles/dashboardStyles";
+import { dashboardLayoutStyles as styles } from "../styles/dashboard-styles";
 
 const DashboardLayout = () => {
   return (

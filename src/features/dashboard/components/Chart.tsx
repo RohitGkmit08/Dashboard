@@ -6,8 +6,8 @@ import {
   type ChartSeriesKey,
 } from "../constants/chart";
 
-import type { DashboardChartPoint } from "../data/dashboardData";
-import { dashboardChartStyles as styles } from "../styles/dashboardStyles";
+import type { DashboardChartPoint } from "../data/dashboard-data";
+import { dashboardChartStyles as styles } from "../styles/dashboard-styles";
 
 interface DashboardChartProps {
   title: string;

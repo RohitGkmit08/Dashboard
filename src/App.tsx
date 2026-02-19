@@ -1,12 +1,11 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import type { PaletteMode } from "@mui/material";
 
-import LoginPage from "./features/auth/login/Page";
+import LoginPage from "./features/auth/login";
 import DashboardPage from "./features/dashboard/Page";
 import DashboardLayout from "./features/dashboard/components/Layout";
 import SettingsPage from "./features/settings/Page";
 import UsersPage from "./features/users/Page";
-
 
 interface AppProps {
   mode: PaletteMode;
