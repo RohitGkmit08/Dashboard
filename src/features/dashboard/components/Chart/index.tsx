@@ -4,10 +4,10 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import {
   DASHBOARD_CHART_SERIES,
   type ChartSeriesKey,
-} from "../constants/dashboardChartConstants";
+} from "../../constants/chart";
 
-import type { DashboardChartPoint } from "../data/dashboardData";
-import { dashboardChartStyles as styles } from "../styles/dashboardStyles";
+import type { DashboardChartPoint } from "../../data/dashboard-data";
+import { dashboardChartStyles as styles } from "../../styles/dashboard-styles";
 
 interface DashboardChartProps {
   title: string;
@@ -15,6 +15,7 @@ interface DashboardChartProps {
 }
 
 const DashboardChart = ({ title, chartData }: DashboardChartProps) => {
+  
   const labels = chartData.map((item) => item.day);
 
   const series = DASHBOARD_CHART_SERIES.map(({ key, label, cssVar }) => ({
@@ -30,7 +31,7 @@ const DashboardChart = ({ title, chartData }: DashboardChartProps) => {
           {title}
         </Typography>
 
-        <Box sx={styles.chartWrapper}>
+        <Box sx={{ width: "100%", overflow: "hidden" }}>
           <BarChart
             height={420}
             xAxis={[

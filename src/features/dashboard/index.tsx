@@ -2,10 +2,10 @@ import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import StatCard from "./components/StatCard";
-import DashboardChart from "./components/DashboardChart";
+import Chart from "./components/Chart";
 
-import { useDashboardData } from "./hooks/useDashboardData";
-import { dashboardLayoutStyles as styles } from "./styles/dashboardStyles";
+import { useDashboardData } from "./hooks/use-dashboard-data";
+import { dashboardLayoutStyles as styles } from "./styles/dashboard-styles";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ const Dashboard = () => {
         <StatCard title="Sessions" value={data.activeSessions} />
       </Box>
 
-      <DashboardChart title="Analytics Overview" chartData={data.chart} />
+      <Chart title="Analytics Overview" chartData={data.chart} />
     </>
   );
 };

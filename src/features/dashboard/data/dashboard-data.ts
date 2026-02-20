@@ -1,4 +1,4 @@
-import type { ChartSeriesKey } from "../constants/dashboardChartConstants";
+import type { ChartSeriesKey } from "../constants/chart";
 
 export interface DashboardChartPoint extends Record<ChartSeriesKey, number> {
   day: string;

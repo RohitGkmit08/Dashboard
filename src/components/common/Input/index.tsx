@@ -1,7 +1,7 @@
 import type React from "react";
-import "./FormInput.css";
+import "./styles.css";
 
-interface FormInputProps<Name extends string = string> {
+interface InputProps<Name extends string = string> {
   label: string;
   name: Name;
   type?: string;
@@ -11,7 +11,7 @@ interface FormInputProps<Name extends string = string> {
   error?: string;
 }
 
-const FormInput = <Name extends string = string>({
+const Input = <Name extends string = string>({
   label,
   name,
   type = "text",
@@ -19,7 +19,7 @@ const FormInput = <Name extends string = string>({
   placeholder,
   onChange,
   error,
-}: FormInputProps<Name>) => {
+}: InputProps<Name>) => {
   const isControlled = value !== undefined;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,4 +53,4 @@ const FormInput = <Name extends string = string>({
   );
 };
 
-export default FormInput;
+export default Input;

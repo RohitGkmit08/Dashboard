@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { dashboardTopStyles as styles } from "../styles/dashboardStyles";
+import { dashboardTopStyles as styles } from "../../styles/dashboard-styles";
 
 const DashboardTop = () => {
   return (

@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
-import { users as initialUsers, type UserRow } from "./data/usersData";
+import { users as initialUsers, type UserRow } from "./constants";
 import AddUserModal from "./components/AddUserModal";
 
 export default function UsersPage() {

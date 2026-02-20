@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import { statCardStyles as styles } from "../styles/dashboardStyles";
+import { statCardStyles as styles } from "../../styles/dashboard-styles";
 
 interface StatCardProps {
   title: string;
@@ -14,7 +14,7 @@ const StatCard = ({ title, value }: StatCardProps) => {
           {title}
         </Typography>
 
-        <Typography variant="h3" sx={styles.value}>
+        <Typography variant="h4" sx={styles.value}>
           {value}
         </Typography>
       </CardContent>

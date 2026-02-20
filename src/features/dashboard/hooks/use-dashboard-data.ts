@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DASHBOARD_DATA, type DashboardData } from "../data/dashboardData";
+import { DASHBOARD_DATA, type DashboardData } from "../data/dashboard-data";
 
 interface UseDashboardDataResult {
   data: DashboardData | null;
