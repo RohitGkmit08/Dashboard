@@ -14,7 +14,7 @@ const StatCard = ({ title, value }: StatCardProps) => {
           {title}
         </Typography>
 
-        <Typography variant="h3" sx={styles.value}>
+        <Typography variant="h4" sx={styles.value}>
           {value}
         </Typography>
       </CardContent>
