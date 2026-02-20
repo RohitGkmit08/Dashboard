@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import StatCard from "./components/StatCard";
 import DashboardChart from "./components/DashboardChart";
@@ -7,6 +8,8 @@ import { useDashboardData } from "./hooks/useDashboardData";
 import { dashboardLayoutStyles as styles } from "./styles/dashboardStyles";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
   const { data, loading, error } = useDashboardData();
 
   if (loading) {
@@ -29,7 +32,10 @@ const Dashboard = () => {
           mb: 3,
         }}
       >
-        <StatCard title="Users" value={data.users} />
+        <Box sx={{ cursor: "pointer" }} onClick={() => navigate("/dashboard/users")}>
+          <StatCard title="Users" value={data.users} />
+        </Box>
+
         <StatCard title="Revenue" value={data.revenue} />
         <StatCard title="Sessions" value={data.activeSessions} />
       </Box>
